@@ -1,6 +1,6 @@
 file_format: "1"
-id: endgame
-name: Endgame
+id: mausi
+name: Mausi
 type: shield
 url: https://github.com/
 requires: [pro_micro]

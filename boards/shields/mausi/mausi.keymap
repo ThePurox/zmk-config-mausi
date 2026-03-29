@@ -1,0 +1,58 @@
+  #include "base_mausi.h"
+
+
+// zilpzalp key numbers
+//     __________________________  __________________________
+//    /     0  |  1  |  2  |  3  \/   4 |   5 |   6 |   7    \
+// |  8  |  9  | 10  | 11  | 12  /\  13 |  14 |  15 |  16 | 17  |
+//    \    18  | 19  | 20    /        \    21 |  22 |  23   /
+//          \    24  | 25  /            \  26 |  27    /
+//           --------------              --------------
+
+/ {
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        apt_layer {
+            label = "Base";
+            bindings = <
+       &kp V         &kp W        &kp F        &kp P          &kp B         &kp J         &kp L         &kp DE_Y     &kp U       &kp DE_Z
+       &hl LCTRL R   &hl LALT S   &hl LGUI T   &hl LSHFT H    &hl RALT K    &hr RALT X    &hr RSHFT N   &hr RGUI A   &hr LALT I  &hr RCTRL O
+                     &kp C        &kp G        &kp D                                      &kp M         &kp DE_COMMA &kp DE_DOT
+                                  &my_lt DE ESC  &my_lt NAV SPACE  &my_lt SYM E        &my_lt NUM TAB
+            >;
+        };
+
+        nav_layer {
+            label = "Nav";
+            bindings = <
+       &trans     &trans     &kp UARW    &trans          &trans       &kp HOME         &kp PG_DN      &kp PG_UP   &kp END    &trans
+       &trans     &kp LARW   &kp DARW    &kp RARW        &trans       &kp LARW         &kp DARW       &kp UARW    &kp RARW   &trans
+                  &trans     &trans      &trans                                        &trans         &trans      &trans
+                                         &trans          &trans       &trans           &trans
+            >;
+        };
+
+        num_layer {
+            label = "Num";
+            bindings = <
+       &kp F1     &kp F2     &kp F3      &kp F4          &trans        &kp DE_PLUS   &kp N1         &kp N2      &kp N3     &kp DE_MINUS
+       &kp F5     &kp F6     &kp F7      &kp F8          &kp F9        &kp N0        &kp N4         &kp N5      &kp N6     &kp DOT
+                  &kp F10    &kp F11     &kp F12                                     &kp N7         &kp N8      &kp N9
+                                         &trans          &trans        &trans        &trans
+            >;
+        };
+
+        symbol_layer {
+            label = "Symbol";
+            bindings = <
+                &kp DE_ACUTE   &kp DE_GRAVE   &kp DE_LBKT    &kp DE_RBKT      &kp DE_QMARK   &kp DE_EXCL     &kp DE_APOS    &kp DE_DQT     &kp DE_CARET    &trans
+                &kp DE_BSLH    &kp DE_HASH    &kp DE_LPAR    &kp DE_RPAR      &kp DE_TILDE   &kp DE_EQUAL    &kp DE_PLUS    &kp DE_MINUS   &kp DE_STAR    &kp DE_FSLH
+                               &kp DE_TILDE   &kp DE_LBRC    &kp DE_RBRC                                     &kp DE_LT      &kp DE_GT      &kp DE_PIPE
+                                                             &trans           &trans         &trans          &trans
+            >;
+        };
+
+    };
+};
