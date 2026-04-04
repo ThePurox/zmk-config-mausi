@@ -58,7 +58,7 @@
 
 &i2c1 {
     trackpad: trackpad@74 {
-        status = "disabled";
+        status = "enabled";
         compatible = "azoteq,iqs5xx";
         reg = <0x74>;
         reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
