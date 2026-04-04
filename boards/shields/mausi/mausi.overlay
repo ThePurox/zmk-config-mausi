@@ -78,13 +78,6 @@
 };
 
 
-/ {
-    tps65_input: tps65 {
-        compatible = "zmk,input-listener";
-        device = <&tps65>;
-    };
-};
-
 &i2c1 {
     status = "okay";
     compatible = "nordic,nrf-twim";
