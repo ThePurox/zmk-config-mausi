@@ -1,3 +1,4 @@
+name: zmk-mausi
 build:
   settings:
     board_root: .

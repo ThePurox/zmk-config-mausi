@@ -6,4 +6,16 @@ if SHIELD_MAUSI
 config ZMK_KEYBOARD_NAME
     default "Mausi"
 
+config ZMK_POINTING
+	default y
+
+config I2C
+	default y
+
+config INPUT
+	default y
+
+config INPUT_AZOTEQ_IQS5XX
+	default y
+
 endif

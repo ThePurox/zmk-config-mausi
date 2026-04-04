@@ -2,8 +2,8 @@ file_format: "1"
 id: mausi
 name: Mausi
 type: shield
-url: https://github.com/
+url: https://github.com/ThePurox/mausi
 requires: [pro_micro]
 features:
   - keys
-  - studio
+  - pointer
