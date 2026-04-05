@@ -71,6 +71,7 @@
         press-and-hold;
         press-and-hold-time = <250>;
         scroll; //two finger scroll
+		schwachsinn;
 
         // Scroll direction
         // natural-scroll-y;
