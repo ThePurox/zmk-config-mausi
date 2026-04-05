@@ -1,5 +1,4 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include "trackpad_config.dtsi"
 
 / {
     kscan0: kscan0 {
@@ -66,24 +65,24 @@
         reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
         rdy-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH | GPIO_PULL_UP>;
 
-        // Gesture features (configured in trackpad_config.dtsi)
+        // Gesture features
         one-finger-tap;
         two-finger-tap;
         press-and-hold;
         press-and-hold-time = 250;
         scroll; //two finger scroll
 
-        // Scroll direction (configured in trackpad_config.dtsi)
+        // Scroll direction
         // natural-scroll-y;
         // natural-scroll-x;
 
-        // Sensitivity settings (configured in trackpad_config.dtsi)
-        bottom-beta = <TRACKPAD_BOTTOM_BETA>;
-        stationary-threshold = <TRACKPAD_STATIONARY_THRESHOLD>;
+        // Sensitivity settings
+        bottom-beta = 5; //palm rejection
+        stationary-threshold = 0; //deadzone
 
-        switch-xy;
-        //flip-x;
-        //flip-y;
+        // switch-xy;
+        // flip-x;
+        // flip-y;
     };
 };
 
