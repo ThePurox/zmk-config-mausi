@@ -57,7 +57,7 @@
 
 
 &i2c1 {
-    trackpad: trackpad@74 {
+    tps65: iqs5xx@74 {
         status = "enabled";
         compatible = "azoteq,iqs5xx";
         reg = <0x74>;
@@ -105,9 +105,9 @@
 };
 
 / {
-    trackpad_input: trackpad_input {
+    tps65: tps65_input {
         compatible = "zmk,input-listener";
         status = "enabled";
-        device = <&trackpad>;
+        device = <&tps65>;
     };
 }
