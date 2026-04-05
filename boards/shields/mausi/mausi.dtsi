@@ -69,7 +69,7 @@
         one-finger-tap;
         two-finger-tap;
         press-and-hold;
-        press-and-hold-time = 250;
+        press-and-hold-time = <250>;
         scroll; //two finger scroll
 
         // Scroll direction
@@ -77,10 +77,10 @@
         // natural-scroll-x;
 
         // Sensitivity settings
-        bottom-beta = 5; //palm rejection
-        stationary-threshold = 0; //deadzone
+        bottom-beta = <5>; //palm rejection
+        stationary-threshold = <0>; //deadzone
 
-        // switch-xy;
+        switch-xy;
         // flip-x;
         // flip-y;
     };
