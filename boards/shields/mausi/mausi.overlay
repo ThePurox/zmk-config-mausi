@@ -85,10 +85,10 @@
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
 
-    trackpad: trackpad@74 {
+    trackpad: trackpad@73 {
         status = "okay";
         compatible = "azoteq,iqs5xx";
-        reg = <0x74>;
+        reg = <0x73>;
         reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
         rdy-gpios = <&gpio0  9 GPIO_ACTIVE_HIGH>;
 
