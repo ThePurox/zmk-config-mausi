@@ -90,7 +90,6 @@
 / {
     tps65: tps65_input {
         compatible = "zmk,input-listener";
-        status = "okay";
-        device = <&tps65>;
+        status = "disabled";
     };
 }

@@ -107,6 +107,7 @@
         scroll;
         natural-scroll-y;
         natural-scroll-x;
+		switch-xy;
 
         // Tuning parameters
         bottom-beta = <5>;
