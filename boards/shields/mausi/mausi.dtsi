@@ -57,6 +57,7 @@
 
 
 &i2c1 {
+	status: "okay";
     tps65: iqs5xx@74 {
         status = "enabled";
         compatible = "azoteq,iqs5xx";
