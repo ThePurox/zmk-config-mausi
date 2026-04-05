@@ -23,9 +23,7 @@
             , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
-};
 
-/ {
     default_transform: keymap_transform0 {
         compatible = "zmk,matrix-transform";
         columns = <5>;
@@ -37,78 +35,20 @@
                                     RC(2,0) RC(2,4) RC(5,0) RC(5,4)
             >;
     };
-};
-
-/ {
     physical_layout0: physical_layout_0 { // First physical layout, use different naming for other layouts
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
         kscan = <&kscan0>; // Label of the kscan node, optional if all layouts use the same
         transform = <&default_transform>; // Label of the matrix transform for this layout
     };
-};
-/ {
+
     chosen {
         zmk,physical-layout = &physical_layout0;
 		zmk,keyscan = &kscan0;
     };
-};
 
-
-
-&i2c1 {
-	status: "okay";
-    tps65: iqs5xx@74 {
-        status = "enabled";
-        compatible = "azoteq,iqs5xx";
-        reg = <0x74>;
-        reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
-        rdy-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH | GPIO_PULL_UP>;
-
-        // Gesture features (configured in trackpad_config.dtsi)
-#ifdef TRACKPAD_ONE_FINGER_TAP
-        one-finger-tap;
-#endif
-#ifdef TRACKPAD_TWO_FINGER_TAP
-        two-finger-tap;
-#endif
-#ifdef TRACKPAD_PRESS_AND_HOLD
-        press-and-hold;
-        press-and-hold-time = <TRACKPAD_PRESS_HOLD_TIME>;
-#endif
-#ifdef TRACKPAD_SCROLL
-        scroll;
-#endif
-
-        // Scroll direction (configured in trackpad_config.dtsi)
-#ifdef TRACKPAD_NATURAL_SCROLL_Y
-        natural-scroll-y;
-#endif
-#ifdef TRACKPAD_NATURAL_SCROLL_X
-        natural-scroll-x;
-#endif
-
-        // Sensitivity settings (configured in trackpad_config.dtsi)
-        bottom-beta = <TRACKPAD_BOTTOM_BETA>;
-        stationary-threshold = <TRACKPAD_STATIONARY_THRESHOLD>;
-
-        // Orientation (configured in trackpad_config.dtsi)
-#ifdef TRACKPAD_SWITCH_XY
-        switch-xy;
-#endif
-#ifdef TRACKPAD_FLIP_X
-        flip-x;
-#endif
-#ifdef TRACKPAD_FLIP_Y
-        flip-y;
-#endif
-    };
-};
-
-/ {
-    tps65: tps65_input {
+    tps65_listener: tps65_listener {
         compatible = "zmk,input-listener";
-        status = "enabled";
-        device = <&tps65>;
+        status = "disabled";
     };
 }

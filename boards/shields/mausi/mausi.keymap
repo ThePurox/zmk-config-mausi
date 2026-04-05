@@ -10,7 +10,16 @@
 //           --------------              --------------
 
 / {
-
+    tps65_listener {
+        scroll {
+            layers = <SCRL>;
+            input-processors
+              = <&zip_xy_scaler 1 32>
+              , <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT> /* natural scroll */
+              , <&zip_xy_to_scroll_mapper>
+            ;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
