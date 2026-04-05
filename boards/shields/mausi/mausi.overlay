@@ -53,9 +53,9 @@
         transform = <&default_transform>; // Label of the matrix transform for this layout
     };
 
-    tps43_input: tps43_input {
+    tps65_input: tps65 {
         compatible = "zmk,input-listener";
-        device = <&tps43>;
+        device = <&tps65>;
     };
 };
 / {
