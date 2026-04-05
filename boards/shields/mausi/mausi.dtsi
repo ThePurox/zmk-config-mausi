@@ -107,17 +107,7 @@
 / {
     trackpad_input: trackpad_input {
         compatible = "zmk,input-listener";
-        status = "disabled";
+        status = "enabled";
         device = <&trackpad>;
-    };
-
-    split_inputs {
-        #address-cells = <1>;
-        #size-cells = <0>;
-
-        trackpad_peripheral_split: trackpad_peripheral_split@73 {
-            compatible = "zmk,input-split";
-            reg = <0x73>;
-        };
     };
 }
