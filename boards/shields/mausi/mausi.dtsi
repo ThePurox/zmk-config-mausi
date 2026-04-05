@@ -66,8 +66,8 @@
         rdy-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH | GPIO_PULL_UP>;
 
         // Gesture features
-        one-finger-tap;
-        two-finger-tap;
+        // one-finger-tap;
+        // two-finger-tap;
         press-and-hold;
         press-and-hold-time = <250>;
         scroll; //two finger scroll
@@ -80,7 +80,7 @@
         bottom-beta = <5>; //palm rejection
         stationary-threshold = <0>; //deadzone
 
-        switch-xy;
+        // switch-xy;
         // flip-x;
         // flip-y;
     };
