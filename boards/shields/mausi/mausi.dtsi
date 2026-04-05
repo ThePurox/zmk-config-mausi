@@ -80,7 +80,7 @@
         bottom-beta = <5>; //palm rejection
         stationary-threshold = <0>; //deadzone
 
-        // switch-xy;
+        switch-xy;
         // flip-x;
         // flip-y;
     };
