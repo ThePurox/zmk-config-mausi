@@ -23,108 +23,67 @@
 
 
 / {
+  macros {
+  macro_sch:
+    macro_sch {
+      label = "Macro_sch";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp S &macro_release &kp RSHIFT &macro_tap &kp C &kp H>;
+    };
+  macro_ion:
+    macro_ion {
+      label = "Macro_ion";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_tap &kp I &macro_release &kp RSHIFT &macro_tap &kp O &kp N>;
+    };
+  };
+};
+
+#define COMBO(NAME, BINDINGS, KEYPOS) \
+  combo_##NAME {                      \
+    timeout-ms = <20>;                \
+    bindings = <BINDINGS>;            \
+    key-positions = <KEYPOS>;         \
+  };
+
+/ {
     combos {
         compatible = "zmk,combos";
 /* usually on base layer */
-        combo_q {
-            timeout-ms = <40>;
-            key-positions = <2 3>;
-            bindings = <&kp Q>;
-            layers = <APT>;
-        };
-        combo_z {
-            timeout-ms = <40>;
-            key-positions = <20 21>;
-            bindings = <&kp DE_Z>;
-        };
-        combo_v {
-            timeout-ms = <40>;
-            key-positions = <1 2>;
-            bindings = <&kp V>;
-            layers = <APT>;
-        };
-        combo_b {
-            timeout-ms = <40>;
-            key-positions = <12 3>;
-            bindings = <&kp B>;
-            layers = <APT>;
-        };
-        combo_j {
-          timeout-ms = <40>;
-          key-positions = <6 17>;
-          bindings = <&kp J>;
-          layers = <APT>;
-        };
-        combo_k {
-          timeout-ms = <40>;
-          key-positions = <12 13>;
-          bindings = <&kp K>;
-          layers = <APT>;
-        };
-        combo_x {
-          timeout-ms = <40>;
-          key-positions = <16 17>;
-          bindings = <&kp X>;
-          layers = <APT>;
-        };
-        combo_slash {
-            timeout-ms = <40>;
-            key-positions = <24 25>;
-            bindings = <&kp SLASH>;
-        };
-        combo_ent {
-            timeout-ms = <40>;
-            key-positions = <23 24>;
-            bindings = <&kp ENTER>;
-        };
+        COMBO(q, &kp Q, 2 3)
+        COMBO(z, &kp DE_Z, 20 21)
+        COMBO(v, &kp V, 1 2)
+        COMBO(b, &kp B, 12 3)
+        COMBO(k, &kp K, 12 13)
+        COMBO(x, &kp X, 16 17)
+        COMBO(j, &kp J, 6 17)
+        COMBO(sch, &macro_sch, 11 13)
+        COMBO(ion, &macro_ion, 9 16 18)
+        COMBO(_sz, &kp DE_SZ, 28 11)
+        COMBO(_ue, &kp DE_UE, 28 8)
+        COMBO(_ae, &kp DE_AE, 28 17)
+        COMBO(_oe, &kp DE_OE, 28 19)
+        COMBO(ent, &kp ENTER, 23 24)
+        COMBO(esc, &kp ESC, 23 24)
+        COMBO(slash, &kp DE_SLASH, 24 25)
 /* caps */
-        combo_caps-word {
-            timeout-ms = <40>;
-            key-positions = <13 16>;
-            bindings = <&caps_word>;
-        };
-        combo_capslock {
-            timeout-ms = <40>;
-            key-positions = <0 9>;
-            bindings = <&kp CAPSLOCK>;
-        };
+        COMBO(capsword, &caps_word, 13 16)
+        COMBO(capslock, &kp CAPSLOCK, 0 9)
+/* deletion */
+        COMBO(bspc, &kp BSPC, 6 7)
+        COMBO(del, &kp DEL, 7 8)
+        COMBO(bspcword, &kp LC(BSPC), 6 8)
+
+    };
+};
+/ {
+    combos {
+        compatible = "zmk,combos";
+/* caps */
         /* Umlaute */
-        combo_ue {
-          timeout-ms = <20>;
-          key-positions = <8 28>;
-          bindings = <&kp DE_UE>;
-        };
-        combo_oe {
-          timeout-ms = <20>;
-          key-positions = <19 28>;
-          bindings = <&kp DE_OE>;
-        };
-        combo_ae {
-          timeout-ms = <20>;
-          key-positions = <17 28>;
-          bindings = <&kp DE_AE>;
-        };
-        combo_sz {
-          timeout-ms = <20>;
-          key-positions = <11 26>;
-          bindings = <&kp DE_SZ>;
-        };
         /* deletion */
-        combo_bspc {
-          timeout-ms = <40>;
-          key-positions = <7 6>;
-            bindings = <&kp BSPC>;
-        };
-        combo_del {
-            timeout-ms = <40>;
-            key-positions = <8 7>;
-            bindings = <&kp DEL>;
-        };
-        combo_delword {
-            timeout-ms = <40>;
-            key-positions = <6 8>;
-            bindings = <&kp LC(BSPC)>;
-        };
 /*F keys*/
         combo_F1 {
           timeout-ms = <40>;
